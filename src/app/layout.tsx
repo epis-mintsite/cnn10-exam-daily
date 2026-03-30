@@ -34,7 +34,7 @@ export default function RootLayout({
           <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 hover:opacity-90">
               <span className="text-2xl font-bold tracking-tight">
-                CNN10 入試対策
+                Daily CNN 10 Exam Prep Materials
               </span>
             </Link>
             <nav className="flex gap-4 text-sm font-medium">
