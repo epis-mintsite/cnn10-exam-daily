@@ -80,8 +80,8 @@ export default async function DailyPage({
               {/* カードヘッダー */}
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 px-6 py-4 md:px-10 bg-[#1a3a5c]">
                 <div className="min-w-0">
-                  <p className="text-xs font-bold text-amber-400 tracking-widest uppercase mb-1">
-                    TOPIC {topic.index}
+                  <p className="text-xs font-bold text-amber-400 tracking-widest mb-1">
+                    📺 動画 {topic.index} / {topics.length}
                   </p>
                   <h2 className="text-base md:text-lg font-bold text-white leading-snug">
                     {topic.titleEn}
@@ -103,6 +103,19 @@ export default async function DailyPage({
                   <TopicPdfDownload topic={topic} date={date} />
                 </div>
               </div>
+
+              {/* YouTube 動画プレーヤー */}
+              {topic.videoId && (
+                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${topic.videoId}`}
+                    title={topic.titleEn}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+              )}
 
               {/* カード本文（マークダウン） */}
               <div className="px-6 py-5 md:px-10">

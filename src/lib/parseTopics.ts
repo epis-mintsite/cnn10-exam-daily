@@ -211,11 +211,24 @@ export function parseTopics(content: string): TopicData[] {
   });
   if (topicStarts.length === 0) return [];
 
+  // 「今日の学習アドバイス」見出し行を検索（最後のトピックの終端として使う）
+  const footerLineIdx = lines.findIndex((l) =>
+    /^##\s+今日の学習アドバイス/.test(l)
+  );
+
   const topics: TopicData[] = [];
 
   topicStarts.forEach((startLine, ti) => {
-    const endLine =
+    let endLine =
       ti + 1 < topicStarts.length ? topicStarts[ti + 1] : lines.length;
+    // 最後のトピックはフッターの手前で切る
+    if (
+      ti === topicStarts.length - 1 &&
+      footerLineIdx !== -1 &&
+      footerLineIdx < endLine
+    ) {
+      endLine = footerLineIdx;
+    }
     const tl = lines.slice(startLine, endLine);     // topic lines
     const rawMarkdown = tl.join("\n");
 
