@@ -2,7 +2,6 @@ import Link from "next/link";
 import { getDaily, getAllDates, getRelatedVideos } from "@/lib/daily";
 import MarkdownContent from "@/components/MarkdownContent";
 import TopicPdfDownload from "@/components/TopicPdfDownload";
-import { parseVocab } from "@/lib/vocab";
 import { parseTopics } from "@/lib/parseTopics";
 import { notFound } from "next/navigation";
 
@@ -30,7 +29,6 @@ export default async function DailyPage({
   const newer = idx > 0 ? dates[idx - 1] : null;
   const older = idx < dates.length - 1 ? dates[idx + 1] : null;
 
-  const wordCount = parseVocab(entry.content).length;
   const topics = parseTopics(entry.content);
 
   // ── イントロ部分（最初のトピック見出し ## / ### より前）
@@ -162,24 +160,6 @@ export default async function DailyPage({
       {footerContent && (
         <div className="mt-6 bg-white rounded-xl border border-gray-100 shadow-sm px-6 py-5 md:px-10">
           <MarkdownContent content={footerContent} />
-        </div>
-      )}
-
-      {/* 単語テストバナー */}
-      {wordCount > 0 && (
-        <div className="mt-6 bg-white rounded-xl border border-gray-100 shadow-sm p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div>
-            <p className="font-semibold text-gray-800">📝 今日の単語テスト</p>
-            <p className="text-sm text-gray-500 mt-0.5">
-              本日の重要英単語 {wordCount} 語をフラッシュカードで練習しましょう
-            </p>
-          </div>
-          <Link
-            href={`/word-tests/${date}`}
-            className="shrink-0 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-lg transition-colors"
-          >
-            単語テストを始める →
-          </Link>
         </div>
       )}
 
