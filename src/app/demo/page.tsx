@@ -16,7 +16,7 @@ export default function DemoPage() {
   const introLines: string[] = [];
   if (entry) {
     for (const line of entry.content.split("\n")) {
-      if (/^#{2,4}\s+\d+\.\s+/.test(line)) break;
+      if (/^#{2,3}\s+\d+\.\s+/.test(line)) break;
       introLines.push(line);
     }
   }

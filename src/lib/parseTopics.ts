@@ -204,10 +204,11 @@ function parseCheckQuestions(text: string): string[] {
 export function parseTopics(content: string): TopicData[] {
   const lines = content.split("\n");
 
-  // Find topic headings: ### 1. / ### 2. etc.
+  // Find topic headings: ## or ### level only (### 1. / ## 1. etc.)
+  // #### level is used for sub-sections inside a topic — must NOT be matched
   const topicStarts: number[] = [];
   lines.forEach((line, i) => {
-    if (/^#{2,4}\s+\d+\.\s+/.test(line)) topicStarts.push(i);
+    if (/^#{2,3}\s+\d+\.\s+/.test(line)) topicStarts.push(i);
   });
   if (topicStarts.length === 0) return [];
 
@@ -252,11 +253,41 @@ export function parseTopics(content: string): TopicData[] {
     }
 
     // ── Category ───────────────────────────────────────────────────────────
+    let category = "";
+    // 形式A: **入試テーマカテゴリ**: 値（同一行）
     const catIdx = findFieldLine(tl, /\*\*入試テーマカテゴリ/);
-    const category =
-      catIdx !== -1
-        ? tl[catIdx].replace(/.*\*\*入試テーマカテゴリ.*?\*\*\s*:?\s*/, "").trim()
-        : "";
+    if (catIdx !== -1) {
+      const inline = tl[catIdx]
+        .replace(/.*\*\*入試テーマカテゴリ.*?\*\*\s*:?\s*/, "")
+        .trim();
+      if (inline) {
+        category = inline;
+      } else {
+        // 形式B: 見出し行の次の非空行が値（#### N. 入試テーマカテゴリ 形式）
+        for (let i = catIdx + 1; i < tl.length; i++) {
+          const t = tl[i].trim();
+          if (t && !t.startsWith("#") && t !== "---") {
+            category = t.replace(/\*\*/g, "").trim();
+            break;
+          }
+        }
+      }
+    }
+    // 形式C: #### N. 入試テーマカテゴリ 見出し（**を含まないケース）
+    if (!category) {
+      const headingIdx = tl.findIndex((l) =>
+        /^#{3,6}\s+\d+\.\s+入試テーマカテゴリ/.test(l)
+      );
+      if (headingIdx !== -1) {
+        for (let i = headingIdx + 1; i < tl.length; i++) {
+          const t = tl[i].trim();
+          if (t && !t.startsWith("#") && t !== "---") {
+            category = t.replace(/\*\*/g, "").trim();
+            break;
+          }
+        }
+      }
+    }
 
     // ── School analysis ────────────────────────────────────────────────────
     const schoolIdx = findFieldLine(tl, /\*\*出題されやすい学校群/);

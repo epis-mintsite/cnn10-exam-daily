@@ -33,10 +33,10 @@ export default async function DailyPage({
   const wordCount = parseVocab(entry.content).length;
   const topics = parseTopics(entry.content);
 
-  // ── イントロ部分（最初のトピック見出しより前）
+  // ── イントロ部分（最初のトピック見出し ## / ### より前）
   const introLines: string[] = [];
   for (const line of entry.content.split("\n")) {
-    if (/^#{2,4}\s+\d+\.\s+/.test(line)) break;
+    if (/^#{2,3}\s+\d+\.\s+/.test(line)) break;
     introLines.push(line);
   }
   const introContent = introLines.join("\n").trim();
