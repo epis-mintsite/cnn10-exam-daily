@@ -73,7 +73,7 @@ export function getAllDates(): string[] {
   if (!fs.existsSync(DAILY_DIR)) return [];
   return fs
     .readdirSync(DAILY_DIR)
-    .filter((f) => f.endsWith(".md"))
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.md$/.test(f))
     .map((f) => f.replace(".md", ""))
     .sort((a, b) => b.localeCompare(a));
 }

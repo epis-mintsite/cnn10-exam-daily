@@ -1,7 +1,6 @@
-# CNN10 入試英語長文対策 - デモ（新仕様プレビュー）
+# CNN10 入試英語長文対策
 
 > 対象: 早慶高・MARCH附属高・関西最難関高（2027年度入試）
-> ⚠️ これは新仕様のデモページです
 
 ---
 
@@ -130,6 +129,24 @@ Adv: especially
 > **答え:** ① cues　② melatonin
 
 ---
+
+**背景知識（教養知識）**:
+
+[科学的背景]
+- 睡眠は「ノンレム睡眠（深い眠り）」と「レム睡眠（夢を見る眠り）」の約90分サイクルで繰り返される。脳は就寝環境を「睡眠の合図（sleep cue）」として学習し、条件反射的に眠気を誘発する（古典的条件付け）。
+- 認知行動療法（CBT-I: Cognitive Behavioral Therapy for Insomnia）は薬物療法より長期的効果が高いとされ、WHO・米国睡眠学会でも第一選択として推奨されている。
+
+[社会的意義]
+- 日本人の平均睡眠時間はOECD加盟国最短水準（約7時間未満）。睡眠不足は生産性低下・交通事故・生活習慣病リスク増加と直結し、年間約15兆円の経済損失が推定される。
+- 10代の睡眠不足は学力・メンタルヘルス・情動制御に深刻な影響を与えることが多くの研究で示されており、受験期の睡眠管理は学習効率の観点からも重要。
+
+[関連概念]
+- Circadian rhythm（概日リズム）：約24時間周期で繰り返す体内時計のメカニズム
+- Sleep hygiene（睡眠衛生）：良質な睡眠を得るための行動・環境の整え方の総称
+- Melatonin（メラトニン）：松果体から分泌される睡眠誘発ホルモン。暗くなると分泌が増加する
+
+📌 入試頻出度: ★★★☆☆
+
 ---
 
 ### 2. [Blue Origin launches satellites bound for Mars（ブルーオリジン、火星へ向かう人工衛星を打ち上げ）](https://www.youtube.com/watch?v=vfQLkTiFFMo)
@@ -260,6 +277,29 @@ O:  [that節] that sending humans to Mars could become a realistic goal
 > Blue Origin launched satellites to support research related to ( ① ). This shows a growing trend of ( ② ) companies taking on space missions that were previously handled only by government agencies.
 
 > **答え:** ① Mars　② commercial（または private sector）
+
+---
+
+**背景知識（教養知識）**:
+
+[科学的背景]
+- 火星の大気は地球の約1%の密度しかなく、主成分は二酸化炭素（95%）。平均気温は約−60℃で、液体の水は地表に存在しないが、極冠の氷や地下水の痕跡が確認されている。
+- ブルーオリジン（Blue Origin）はジェフ・ベゾスが2000年に設立した宇宙企業。再利用可能なロケット「New Shepard」「New Glenn」を開発し、SpaceXと並ぶ民間宇宙企業の代表格。
+
+[歴史的文脈]
+- 宇宙開発の民営化の流れ：1990年代のX賞（Ansari X Prize）で民間宇宙飛行が現実化。2010年代にSpaceX・Blue Originが台頭し、NASAは民間企業との商業契約（Commercial Crew Program）へ移行。
+- 火星探査史：NASAのバイキング1号（1976年、初の火星軟着陸）→ キュリオシティ（2012年〜）→ パーサヴィアランス（2021年〜）。中国「天問1号」（2021年）も軟着陸成功。
+
+[社会的意義]
+- 宇宙開発は「人類の未来」「持続可能な生存戦略」の観点から入試頻出テーマ。「地球外での人類の存続は可能か」「宇宙開発の費用対効果」「民間vs政府の役割分担」は英作文テーマの定番。
+- SDGs目標9（産業・イノベーション）・目標17（パートナーシップ）との関連で論じられることも多い。
+
+[関連概念]
+- Commercial space（商業宇宙）：民間企業が主体となる宇宙開発・輸送・観光ビジネス
+- Payload（ペイロード）：ロケットや宇宙船が搭載する有効積載物（衛星・探査機・貨物など）
+- Deep space（深宇宙）：地球近傍軌道（LEO）を超えた遠宇宙空間。月軌道以遠を指すことが多い
+
+📌 入試頻出度: ★★★★☆
 
 ---
 
