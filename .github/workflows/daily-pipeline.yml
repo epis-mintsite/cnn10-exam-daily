@@ -73,5 +73,5 @@ jobs:
 
             ## STEP 8: Check for missing dates
             If content/YESTERDAY.md is missing, create that too before pushing.
-                        ## IMPORTANT
+            ## IMPORTANT
             Do NOT use the PushNotification tool at any point. Do NOT send any emails or push notifications.
