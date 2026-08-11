@@ -460,15 +460,15 @@ interface Props {
 export default function TopicPdfDocument({ topic, date }: Props) {
   return (
     <Document
-      title={`CNN10 入試英語 ${date} TOPIC${topic.index}`}
-      author="CNN10 入試英語長文対策"
+      title={`今日の時事英語 ${date} TOPIC${topic.index}`}
+      author="今日の時事英語"
       subject={topic.titleEn}
       language="ja"
     >
       <Page size="A4" style={S.page}>
         {/* Fixed header */}
         <View style={S.pageHeader} fixed>
-          <Text style={S.pageHeaderL}>CNN10 入試英語長文対策</Text>
+          <Text style={S.pageHeaderL}>今日の時事英語 — 最難関高校 英語長文読解対策</Text>
           <Text style={S.pageHeaderR}>{date}</Text>
         </View>
 
@@ -480,7 +480,7 @@ export default function TopicPdfDocument({ topic, date }: Props) {
           fixed
           render={({ pageNumber }) => (
             <>
-              <Text style={S.pageFooterBrand}>CNN10 × 入試英語</Text>
+              <Text style={S.pageFooterBrand}>今日の時事英語</Text>
               <Text style={S.pageFooterPage}>p. {pageNumber}</Text>
             </>
           )}

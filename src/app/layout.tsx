@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CNN10 入試英語長文対策",
+  title: "今日の時事英語 — 最難関高校 英語長文読解対策",
   description:
-    "CNN10から厳選した入試頻出テーマの動画を毎日配信。早慶高・MARCH附属高・関西最難関高の2027年度入試対策に。",
+    "CNN10動画を素材とした時事テーマの教材を毎日配信。早慶高・MARCH附属高・関西最難関高の2027年度入試 英語長文読解対策に。",
 };
 
 export default function RootLayout({
@@ -32,9 +32,12 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-gray-50">
         <header className="bg-red-700 text-white shadow-lg">
           <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 hover:opacity-90">
-              <span className="text-2xl font-bold tracking-tight">
-                Daily CNN 10 Exam Prep Materials
+            <Link href="/" className="flex flex-col hover:opacity-90">
+              <span className="text-2xl font-bold tracking-tight leading-tight">
+                今日の時事英語
+              </span>
+              <span className="text-xs font-medium text-red-200 tracking-wide mt-0.5">
+                最難関高校 英語長文読解対策
               </span>
             </Link>
             <nav className="flex gap-4 text-sm font-medium">
@@ -58,9 +61,12 @@ export default function RootLayout({
         </header>
         <main className="flex-1">{children}</main>
         <footer className="bg-gray-800 text-gray-400 text-center py-6 text-xs">
-          <p>CNN10 入試英語長文対策 Daily Picks</p>
+          <p>今日の時事英語 — 最難関高校 英語長文読解対策</p>
           <p className="mt-1">
-            Source: CNN 10 &mdash; Updated daily at 7:00 AM JST
+            素材：CNN10（YouTube）&mdash; 毎朝7時更新
+          </p>
+          <p className="mt-2 text-gray-500">
+            本サービスはCNN / CNN10とは一切の関係を持たない独立した教育サービスです。
           </p>
         </footer>
       </body>
