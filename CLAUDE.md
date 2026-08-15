@@ -25,9 +25,19 @@ git push origin main   # 正しい
 
 セッション設定で別ブランチが指定されていても、**コンテンツファイル（content/*.md）は必ず main にプッシュする**こと。
 
-## YouTube RSS 取得失敗時のフォールバック
+## STEP 2: 動画取得方法（YouTube Data API v3 優先）
 
-`https://www.youtube.com/feeds/videos.xml?...` がネットワークポリシーでブロックされる場合（Host not in allowlist）、STEP 2 をスキップして既存の `data/video-pool.tsv` のまま続行する。エラーで停止しない。
+`www.youtube.com` はネットワークポリシーでブロックされているため、RSS フィードは使用不可。
+代わりに **YouTube Data API v3**（`www.googleapis.com` 経由）を使用する。
+
+```bash
+YOUTUBE_API_KEY="AIzaSyBLWlu4ZKMUq0Csm89UlWOqXINNCQPgtpY"
+curl -s "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCTOoRgpHTjAQPk6Ak70u-pA&order=date&maxResults=15&type=video&key=${YOUTUBE_API_KEY}"
+```
+
+レスポンスの `items[].id.videoId` と `items[].snippet.title` を抽出し、プール未登録のものを先頭に追加する。
+
+API キーが無効・クォータ超過の場合は既存の `data/video-pool.tsv` のまま続行する（エラーで停止しない）。
 
 ## 配信失敗の検出と補完
 
